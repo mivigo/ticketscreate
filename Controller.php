@@ -3,7 +3,6 @@ namespace App;
 class TicketsCreate {
 
     public function create($eventIds) {
-//        $eventIds = [14, 21, 587, 82];
         //get partner $id
         $partnerId = rand(100, 1000);
 
@@ -20,14 +19,20 @@ class TicketsCreate {
         }
 
     }
-    private function reserveRandomLocalTicket ($eventId) {
-        $q = abs(rand($eventId , 1000 + rand(100, 1000)-rand(100, 1000)));
+    private function reserveRandomLocalTicket () {
+        $q = $this->rand(99,3000);
         echo ' Local Ticket Id:' .+ $q;
     }
 
-    private function reserveRandomPartnerTicket ($eventId, $partnerId) {
-       $q = abs(rand($eventId , $partnerId )+ rand(100, 1000)-rand(100, 1000));
+    private function reserveRandomPartnerTicket () {
+       $q = $this->rand(80000,90000);
         echo ' Partner Ticket Id:' .+ $q;
+
+    }
+
+    private function rand ($from, $to) {
+        $a = rand($from, $to);
+        return $a;
     }
 
 }
